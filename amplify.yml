@@ -3,23 +3,21 @@ frontend:
   phases:
     preBuild:
       commands:
-        - curl -fsSL https://bun.sh/install | bash  # Cài đặt Bun
+        - curl -fsSL https://bun.sh/install | bash
         - export BUN_INSTALL="$HOME/.bun"
         - export PATH="$BUN_INSTALL/bin:$PATH"
-        - printenv | grep NEXT_PUBLIC_ > .env  # Xuất biến môi trường ra file .env
-        - bun install --no-cache  # Cài dependencies bằng Bun
+        - bun install --no-cache
     build:
       commands:
-        - bun run build  # Build ứng dụng Next.js với Bun
+        - bun run build
   artifacts:
-    baseDirectory: .next  # Đúng thư mục build của Next.js
+    baseDirectory: .next
     files:
       - "**/*"
   cache:
-    paths:
-      - node_modules/**/*
+    paths: []
 backend:
   phases:
     deploy:
       commands:
-        - bun run start  # Chạy server Next.js
+        - bun run start
