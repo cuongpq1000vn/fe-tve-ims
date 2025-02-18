@@ -7,7 +7,7 @@ frontend:
         - export BUN_INSTALL="$HOME/.bun"
         - export PATH="$BUN_INSTALL/bin:$PATH"
         - printenv | grep NEXT_PUBLIC_ > .env  # Xuất biến môi trường ra file .env
-        - bun install  # Cài dependencies bằng Bun
+        - bun install --no-cache  # Cài dependencies bằng Bun
     build:
       commands:
         - bun run build  # Build ứng dụng Next.js với Bun
